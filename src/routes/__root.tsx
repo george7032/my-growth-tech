@@ -12,6 +12,7 @@ import { useEffect, type ReactNode } from "react";
 import { Footer } from "@/components/site/Footer";
 import { Header } from "@/components/site/Header";
 import { FloatingActions } from "@/components/site/FloatingActions";
+import { MotionLayer } from "@/components/site/MotionLayer";
 import { Toaster } from "@/components/ui/sonner";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -135,6 +136,7 @@ function RootComponent() {
         </main>
         <Footer />
       </div>
+      <MotionLayer />
       <FloatingActions />
       <Toaster />
     </QueryClientProvider>

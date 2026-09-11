@@ -110,11 +110,11 @@ function HomePage() {
           alt="Team collaborating in a modern office"
           width={1920}
           height={1088}
-          className="absolute inset-0 size-full object-cover opacity-60"
+          className="absolute inset-0 size-full animate-ken-burns object-cover opacity-60"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-navy-deep via-navy-deep/90 to-navy-deep/30" />
         <div className="container-page relative py-28 sm:py-40">
-          <div className="max-w-2xl animate-rise">
+          <div className="max-w-2xl stagger-children">
             <p className="eyebrow text-silver/70">Zebnex Tech Solutions</p>
             <h1 className="mt-6 text-4xl leading-[1.08] font-semibold text-primary-foreground sm:text-5xl lg:text-6xl">
               Technology and Identity, Built for Growth
@@ -130,14 +130,14 @@ function HomePage() {
             <div className="mt-10 flex flex-wrap gap-4">
               <Link
                 to="/contact"
-                className="group inline-flex items-center gap-2 rounded-md bg-primary-foreground px-7 py-4 text-sm font-medium text-navy transition-colors hover:bg-silver-muted"
+                className="group sheen-on-hover inline-flex items-center gap-2 rounded-md bg-primary-foreground px-7 py-4 text-sm font-medium text-navy transition-all hover:-translate-y-0.5 hover:bg-silver-muted hover:shadow-lift"
               >
                 Book a Free Consultation
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
                 to="/services"
-                className="inline-flex items-center gap-2 rounded-md border border-primary-foreground/30 px-7 py-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary-foreground/10"
+                className="inline-flex items-center gap-2 rounded-md border border-primary-foreground/30 px-7 py-4 text-sm font-medium text-primary-foreground transition-all hover:-translate-y-0.5 hover:border-primary-foreground/60 hover:bg-primary-foreground/10"
               >
                 Explore our services
               </Link>
@@ -165,7 +165,7 @@ function HomePage() {
             into new markets, tailoring every solution to where you are and where you're headed.
           </p>
         </div>
-        <div className="overflow-hidden rounded-lg border border-border shadow-card">
+        <div className="zoom-media hover-lift overflow-hidden rounded-lg border border-border shadow-card">
           <img
             src={slideNetwork}
             alt="Server room supporting business operations"
@@ -224,7 +224,7 @@ function HomePage() {
             {PROJECTS.map((project, i) => (
               <article
                 key={project.title}
-                className="overflow-hidden rounded-lg border border-border bg-card shadow-card"
+                className="zoom-media hover-lift overflow-hidden rounded-lg border border-border bg-card shadow-card"
               >
                 <img
                   src={i === 0 ? projectTicketing : projectTenant}

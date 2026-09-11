@@ -89,7 +89,7 @@ function BlogPage() {
           <Link
             to="/blog/$slug"
             params={{ slug: featured.slug }}
-            className="group mt-12 grid overflow-hidden rounded-lg border border-border bg-card shadow-card transition-all hover:shadow-lift lg:grid-cols-2"
+            className="group zoom-media mt-12 grid overflow-hidden rounded-lg border border-border bg-card shadow-card transition-all hover:-translate-y-1 hover:shadow-lift lg:grid-cols-2"
           >
             <img
               src={POST_IMAGES[featured.image]}

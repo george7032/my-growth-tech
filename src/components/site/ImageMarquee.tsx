@@ -17,7 +17,7 @@ export function ImageMarquee({ slides }: { slides: Slide[] }) {
           {loop.map((slide, i) => (
             <figure
               key={`${slide.label}-${i}`}
-              className="w-[300px] shrink-0 overflow-hidden rounded-lg border border-border bg-card shadow-card sm:w-[420px]"
+              className="zoom-media hover-lift w-[300px] shrink-0 overflow-hidden rounded-lg border border-border bg-card shadow-card sm:w-[420px]"
             >
               <img
                 src={slide.src}

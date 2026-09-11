@@ -72,7 +72,7 @@ function AboutPage() {
             or convenient for us to sell.
           </p>
         </div>
-        <div className="overflow-hidden rounded-lg border border-border shadow-card">
+        <div className="zoom-media hover-lift overflow-hidden rounded-lg border border-border shadow-card">
           <img
             src={aboutTeam}
             alt="The Zebnex team collaborating"
@@ -107,7 +107,7 @@ function AboutPage() {
       <section className="container-page py-20">
         <p className="eyebrow">Leadership</p>
         <div className="mt-8 grid gap-12 lg:grid-cols-[360px_1fr] lg:items-start">
-          <div className="overflow-hidden rounded-lg border border-border shadow-card">
+          <div className="zoom-media hover-lift overflow-hidden rounded-lg border border-border shadow-card">
             <img
               src={ceoPortrait}
               alt="Ian Kariuki, CEO and Founder of Zebnex Tech Solutions"
