@@ -101,6 +101,7 @@ export function MotionLayer() {
     const timer = window.setTimeout(collect, 150);
 
     return () => {
+      window.clearTimeout(timer);
       io.disconnect();
       targets.forEach((el) => {
         el.removeAttribute("data-reveal");
