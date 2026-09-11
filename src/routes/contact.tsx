@@ -168,7 +168,7 @@ function ContactPage() {
         </div>
 
         <div>
-          <div className="rounded-lg border border-border bg-card p-8 shadow-card">
+          <div className="hover-lift rounded-lg border border-border bg-card p-8 shadow-card">
             <h2 className="text-2xl font-semibold">Send Us a Message</h2>
             {done ? (
               <div className="mt-8 flex gap-3 rounded-md border border-border bg-secondary/40 p-6">

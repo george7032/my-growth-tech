@@ -95,7 +95,7 @@ function ServicesPage() {
                 </div>
               </div>
               {visual ? (
-                <div className="overflow-hidden rounded-lg border border-border shadow-card">
+                <div className="zoom-media hover-lift overflow-hidden rounded-lg border border-border shadow-card">
                   <img
                     src={visual}
                     alt={service.title}

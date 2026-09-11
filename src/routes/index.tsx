@@ -224,7 +224,7 @@ function HomePage() {
             {PROJECTS.map((project, i) => (
               <article
                 key={project.title}
-                className="overflow-hidden rounded-lg border border-border bg-card shadow-card"
+                className="zoom-media hover-lift overflow-hidden rounded-lg border border-border bg-card shadow-card"
               >
                 <img
                   src={i === 0 ? projectTicketing : projectTenant}
