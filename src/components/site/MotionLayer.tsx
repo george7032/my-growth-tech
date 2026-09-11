@@ -48,17 +48,30 @@ export function MotionLayer() {
 
     const targets: HTMLElement[] = [];
 
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-revealed");
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: "0px 0px -10% 0px", threshold: 0.08 },
+    );
+
     const collect = () => {
-      const sections = Array.from(document.querySelectorAll<HTMLElement>("main section"));
-      sections.forEach((section, sectionIndex) => {
-        const container =
-          section.querySelector<HTMLElement>(":scope > .container-page") ?? section;
+      const blocks = Array.from(
+        document.querySelectorAll<HTMLElement>("main > section, main > div, main > article, main section"),
+      );
+      blocks.forEach((block, blockIndex) => {
+        const container = block.querySelector<HTMLElement>(":scope > .container-page") ?? block;
         const children = Array.from(container.children) as HTMLElement[];
 
         children.forEach((child) => {
           if (child.hasAttribute("data-reveal") || child.closest("[data-reveal]")) return;
-          if (child.tagName === "IMG" && child.classList.contains("absolute")) return;
           if (child.classList.contains("absolute")) return;
+          if (child.querySelector("section")) return;
 
           // Grid / card lists animate item-by-item for a nicer cascade
           const isList = child.childElementCount > 2 && /grid|flex/.test(child.className);
@@ -72,31 +85,20 @@ export function MotionLayer() {
         });
 
         // First screenful reveals immediately so nothing looks blank on load
-        if (sectionIndex === 0) {
-          section.querySelectorAll<HTMLElement>("[data-reveal]").forEach((el) => {
+        if (blockIndex === 0) {
+          block.querySelectorAll<HTMLElement>("[data-reveal]").forEach((el) => {
             el.classList.add("is-revealed");
           });
         }
       });
+
+      targets.forEach((el) => {
+        if (!el.classList.contains("is-revealed")) io.observe(el);
+      });
     };
 
-    collect();
-
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-revealed");
-            io.unobserve(entry.target);
-          }
-        });
-      },
-      { rootMargin: "0px 0px -10% 0px", threshold: 0.08 },
-    );
-
-    targets.forEach((el) => {
-      if (!el.classList.contains("is-revealed")) io.observe(el);
-    });
+    // Wait until hydration has settled before touching the DOM.
+    const timer = window.setTimeout(collect, 150);
 
     return () => {
       io.disconnect();
