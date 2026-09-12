@@ -98,6 +98,15 @@ export function ChatWidget({ open, onOpenChange }: { open: boolean; onOpenChange
           <p className="font-display text-sm font-semibold">Zebnex Assistant</p>
           <p className="text-xs text-primary-foreground/70">Usually replies instantly</p>
         </div>
+        <button
+          type="button"
+          aria-label="Start a new chat"
+          title="Start a new chat"
+          onClick={reset}
+          className="opacity-80 transition-opacity hover:opacity-100"
+        >
+          <RotateCcw className="size-4" />
+        </button>
         <button type="button" aria-label="Close chat" onClick={() => onOpenChange(false)}>
           <X className="size-5" />
         </button>
@@ -106,19 +115,39 @@ export function ChatWidget({ open, onOpenChange }: { open: boolean; onOpenChange
       <div ref={scrollRef} className="flex-1 space-y-4 overflow-y-auto px-4 py-4">
         {messages.map((m, i) => (
           <div key={i} className={m.role === "user" ? "flex justify-end" : ""}>
-            <p
-              className={
-                m.role === "user"
-                  ? "max-w-[85%] rounded-lg rounded-br-sm bg-navy px-3.5 py-2.5 text-sm whitespace-pre-wrap text-primary-foreground"
-                  : "max-w-full text-sm leading-relaxed whitespace-pre-wrap text-foreground"
-              }
-            >
-              {m.content}
-            </p>
+            {m.role === "user" ? (
+              <p className="max-w-[85%] rounded-lg rounded-br-sm bg-navy px-3.5 py-2.5 text-sm whitespace-pre-wrap text-primary-foreground">
+                {m.content}
+              </p>
+            ) : (
+              <div className="chat-prose max-w-full text-sm leading-relaxed text-foreground">
+                <ReactMarkdown remarkPlugins={[remarkGfm]}>{m.content}</ReactMarkdown>
+              </div>
+            )}
           </div>
         ))}
-        {sending && <p className="animate-pulse text-sm text-muted-foreground">Thinking…</p>}
+        {sending && (
+          <div className="flex items-center gap-1.5" aria-label="Assistant is typing">
+            <span className="size-2 animate-bounce rounded-full bg-muted-foreground [animation-delay:-0.3s]" />
+            <span className="size-2 animate-bounce rounded-full bg-muted-foreground [animation-delay:-0.15s]" />
+            <span className="size-2 animate-bounce rounded-full bg-muted-foreground" />
+          </div>
+        )}
         {error && <p className="text-sm text-destructive">{error}</p>}
+        {messages.length === 1 && !sending && (
+          <div className="flex flex-wrap gap-2 pt-1">
+            {SUGGESTIONS.map((s) => (
+              <button
+                key={s}
+                type="button"
+                onClick={() => void send(s)}
+                className="rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:border-navy hover:text-foreground"
+              >
+                {s}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
       <form
