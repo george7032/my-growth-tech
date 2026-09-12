@@ -27,57 +27,63 @@ export const Route = createFileRoute("/api/chat")({
 
         const key = process.env["LOVABLE_API_KEY"];
         if (!key) {
-          return new Response("Assistant is not configured", { status: 500 });
+          return new Response("The assistant is not configured yet.", { status: 500 });
         }
 
-        const upstream = await fetch("https://ai.gateway.lovable.dev/v1/responses", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Lovable-API-Key": key,
-            "X-Lovable-AIG-SDK": "fetch",
-          },
-          body: JSON.stringify({
-            model: "openai/gpt-6-astra",
-            stream: true,
-            store: false,
-            reasoning: { effort: "low" },
-            max_output_tokens: 1200,
-            input: [
-              { role: "system", content: SYSTEM_PROMPT },
-              ...incoming.slice(-16).map((m) => ({
-                role: m.role,
-                content: m.content.slice(0, 2000),
-              })),
-            ],
-          }),
-        });
+        let upstream: Response;
+        try {
+          upstream = await fetch("https://ai.gateway.lovable.dev/v1/responses", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Lovable-API-Key": key,
+              "X-Lovable-AIG-SDK": "fetch",
+            },
+            body: JSON.stringify({
+              model: "openai/gpt-6-astra",
+              stream: true,
+              store: false,
+              reasoning: { effort: "low" },
+              max_output_tokens: 1200,
+              input: [
+                { role: "system", content: SYSTEM_PROMPT },
+                ...incoming.slice(-16).map((m) => ({
+                  role: m.role,
+                  content: m.content.slice(0, 2000),
+                })),
+              ],
+            }),
+          });
+        } catch (error) {
+          console.error("AI gateway request failed", error);
+          return new Response("The assistant is unavailable right now.", { status: 502 });
+        }
 
         if (!upstream.ok || !upstream.body) {
           const detail = await upstream.text().catch(() => "");
           console.error(`AI gateway error [${upstream.status}]: ${detail}`);
-          return new Response("The assistant is unavailable right now.", {
-            status: upstream.status === 429 ? 429 : 502,
+          const message =
+            upstream.status === 429
+              ? "The assistant is busy right now. Please try again in a moment."
+              : upstream.status === 402
+                ? "The assistant is out of credits. Please reach us on WhatsApp meanwhile."
+                : "The assistant is unavailable right now.";
+          return new Response(message, {
+            status: upstream.status === 429 || upstream.status === 402 ? upstream.status : 502,
           });
         }
 
-        const reader = upstream.body.pipeThrough(new TextDecoderStream()).getReader();
         const encoder = new TextEncoder();
-        let buffer = "";
+        const decoder = new TextDecoder();
+        const reader = upstream.body.getReader();
 
         const stream = new ReadableStream<Uint8Array>({
-          async pull(controller) {
-            const { value, done } = await reader.read();
-            if (done) {
-              controller.close();
-              return;
-            }
-            buffer += value;
-            const events = buffer.split("\n\n");
-            buffer = events.pop() ?? "";
+          async start(controller) {
+            let buffer = "";
+            let sentAny = false;
 
-            for (const event of events) {
-              for (const line of event.split("\n")) {
+            const handleEvent = (raw: string) => {
+              for (const line of raw.split("\n")) {
                 if (!line.startsWith("data:")) continue;
                 const payload = line.slice(5).trim();
                 if (!payload || payload === "[DONE]") continue;
@@ -86,13 +92,39 @@ export const Route = createFileRoute("/api/chat")({
                   if (parsed["type"] === "response.output_text.delta") {
                     const delta = parsed["delta"];
                     if (typeof delta === "string" && delta) {
+                      sentAny = true;
                       controller.enqueue(encoder.encode(delta));
                     }
+                  } else if (parsed["type"] === "response.error" || parsed["type"] === "error") {
+                    console.error("AI stream error", payload);
                   }
                 } catch {
                   /* ignore keep-alives and partial frames */
                 }
               }
+            };
+
+            try {
+              while (true) {
+                const { value, done } = await reader.read();
+                if (done) break;
+                buffer += decoder.decode(value, { stream: true });
+                const events = buffer.split("\n\n");
+                buffer = events.pop() ?? "";
+                for (const event of events) handleEvent(event);
+              }
+              if (buffer.trim()) handleEvent(buffer);
+              if (!sentAny) {
+                controller.enqueue(
+                  encoder.encode(
+                    "Sorry, I couldn't answer that just now. Please try rephrasing, or reach us on +254 115 339 092.",
+                  ),
+                );
+              }
+            } catch (error) {
+              console.error("AI stream failed", error);
+            } finally {
+              controller.close();
             }
           },
           cancel() {
@@ -103,7 +135,8 @@ export const Route = createFileRoute("/api/chat")({
         return new Response(stream, {
           headers: {
             "Content-Type": "text/plain; charset=utf-8",
-            "Cache-Control": "no-cache",
+            "Cache-Control": "no-cache, no-transform",
+            "X-Accel-Buffering": "no",
           },
         });
       },
