@@ -53,8 +53,15 @@ export function ChatWidget({ open, onOpenChange }: { open: boolean; onOpenChange
     if (open) inputRef.current?.focus();
   }, [open, sending]);
 
-  async function send() {
-    const text = input.trim();
+  function reset() {
+    setMessages([GREETING]);
+    setInput("");
+    setError(null);
+    inputRef.current?.focus();
+  }
+
+  async function send(preset?: string) {
+    const text = (preset ?? input).trim();
     if (!text || sending) return;
     const next = [...messages, { role: "user" as const, content: text }];
     setMessages(next);
