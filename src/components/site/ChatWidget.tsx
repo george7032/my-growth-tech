@@ -99,8 +99,14 @@ export function ChatWidget({ open, onOpenChange }: { open: boolean; onOpenChange
           },
         ]);
       }
-    } catch {
-      setError("The assistant is unavailable right now. Please try again or message us on WhatsApp.");
+    } catch (err) {
+      const detail = err instanceof Error ? err.message : "";
+      setMessages(next);
+      setError(
+        detail && detail.length < 160 && !detail.startsWith("<")
+          ? detail
+          : "The assistant is unavailable right now. Please try again or message us on WhatsApp.",
+      );
     } finally {
       setSending(false);
     }
