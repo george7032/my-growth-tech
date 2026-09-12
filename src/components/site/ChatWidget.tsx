@@ -75,7 +75,10 @@ export function ChatWidget({ open, onOpenChange }: { open: boolean; onOpenChange
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ messages: next.slice(-16) }),
       });
-      if (!res.ok || !res.body) throw new Error(await res.text().catch(() => "failed"));
+      if (!res.ok || !res.body) {
+        const detail = (await res.text().catch(() => "")).trim();
+        throw new Error(detail || "failed");
+      }
 
       const reader = res.body.pipeThrough(new TextDecoderStream()).getReader();
       let reply = "";
