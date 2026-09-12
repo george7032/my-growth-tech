@@ -1,7 +1,15 @@
-import { MessageSquare, Send, X } from "lucide-react";
+import { MessageSquare, RotateCcw, Send, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 import logo from "@/assets/zebnex-logo.png";
+
+const SUGGESTIONS = [
+  "What services do you offer?",
+  "How much does a website cost?",
+  "Can you help with networking?",
+];
 
 type ChatMessage = { role: "user" | "assistant"; content: string };
 
