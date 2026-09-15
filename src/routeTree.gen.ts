@@ -13,7 +13,11 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as PortfolioRouteImport } from './routes/portfolio'
+import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as TestimonialsRouteImport } from './routes/testimonials'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
@@ -37,9 +41,29 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortfolioRoute = PortfolioRouteImport.update({
+  id: '/portfolio',
+  path: '/portfolio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PricingRoute = PricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TestimonialsRoute = TestimonialsRouteImport.update({
+  id: '/testimonials',
+  path: '/testimonials',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiChatRoute = ApiChatRouteImport.update({
@@ -58,7 +82,11 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/blog': typeof BlogRouteWithChildren
   '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
+  '/portfolio': typeof PortfolioRoute
+  '/pricing': typeof PricingRoute
   '/services': typeof ServicesRoute
+  '/testimonials': typeof TestimonialsRoute
   '/api/chat': typeof ApiChatRoute
   '/blog/$slug': typeof BlogSlugRoute
 }
@@ -67,7 +95,11 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/blog': typeof BlogRouteWithChildren
   '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
+  '/portfolio': typeof PortfolioRoute
+  '/pricing': typeof PricingRoute
   '/services': typeof ServicesRoute
+  '/testimonials': typeof TestimonialsRoute
   '/api/chat': typeof ApiChatRoute
   '/blog/$slug': typeof BlogSlugRoute
 }
@@ -77,7 +109,11 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/blog': typeof BlogRouteWithChildren
   '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
+  '/portfolio': typeof PortfolioRoute
+  '/pricing': typeof PricingRoute
   '/services': typeof ServicesRoute
+  '/testimonials': typeof TestimonialsRoute
   '/api/chat': typeof ApiChatRoute
   '/blog/$slug': typeof BlogSlugRoute
 }
@@ -88,7 +124,11 @@ export interface FileRouteTypes {
     | '/about'
     | '/blog'
     | '/contact'
+    | '/faq'
+    | '/portfolio'
+    | '/pricing'
     | '/services'
+    | '/testimonials'
     | '/api/chat'
     | '/blog/$slug'
   fileRoutesByTo: FileRoutesByTo
@@ -97,7 +137,11 @@ export interface FileRouteTypes {
     | '/about'
     | '/blog'
     | '/contact'
+    | '/faq'
+    | '/portfolio'
+    | '/pricing'
     | '/services'
+    | '/testimonials'
     | '/api/chat'
     | '/blog/$slug'
   id:
@@ -106,7 +150,11 @@ export interface FileRouteTypes {
     | '/about'
     | '/blog'
     | '/contact'
+    | '/faq'
+    | '/portfolio'
+    | '/pricing'
     | '/services'
+    | '/testimonials'
     | '/api/chat'
     | '/blog/$slug'
   fileRoutesById: FileRoutesById
@@ -116,7 +164,11 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   BlogRoute: typeof BlogRouteWithChildren
   ContactRoute: typeof ContactRoute
+  FaqRoute: typeof FaqRoute
+  PortfolioRoute: typeof PortfolioRoute
+  PricingRoute: typeof PricingRoute
   ServicesRoute: typeof ServicesRoute
+  TestimonialsRoute: typeof TestimonialsRoute
   ApiChatRoute: typeof ApiChatRoute
 }
 
@@ -150,11 +202,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portfolio': {
+      id: '/portfolio'
+      path: '/portfolio'
+      fullPath: '/portfolio'
+      preLoaderRoute: typeof PortfolioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pricing': {
+      id: '/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof PricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services': {
       id: '/services'
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/testimonials': {
+      id: '/testimonials'
+      path: '/testimonials'
+      fullPath: '/testimonials'
+      preLoaderRoute: typeof TestimonialsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/chat': {
@@ -189,7 +269,11 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   BlogRoute: BlogRouteWithChildren,
   ContactRoute: ContactRoute,
+  FaqRoute: FaqRoute,
+  PortfolioRoute: PortfolioRoute,
+  PricingRoute: PricingRoute,
   ServicesRoute: ServicesRoute,
+  TestimonialsRoute: TestimonialsRoute,
   ApiChatRoute: ApiChatRoute,
 }
 export const routeTree = rootRouteImport
