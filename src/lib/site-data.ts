@@ -392,3 +392,166 @@ export const PROJECTS = [
     tags: ["Software Development", "Cloud Services", "Web Development"],
   },
 ];
+
+export type Testimonial = {
+  quote: string;
+  name: string;
+  role: string;
+  company: string;
+};
+
+export const TESTIMONIALS: Testimonial[] = [
+  {
+    quote:
+      "Zebnex rebuilt our school website and set up the office network in the same month. Parents can finally find information without calling us, and the Wi-Fi reaches every classroom.",
+    name: "Grace Wanjiru",
+    role: "Administrator",
+    company: "Embakasi Bedicta Academy",
+  },
+  {
+    quote:
+      "The booking site they built has paid for itself several times over. Enquiries come in overnight now instead of only when someone is at the phone.",
+    name: "Kelvin Otieno",
+    role: "Director",
+    company: "Gokyle Tours and Safaris",
+  },
+  {
+    quote:
+      "They audited our systems, closed the gaps and trained our staff on phishing. Practical work, explained in language the whole team understood.",
+    name: "Mercy Njeri",
+    role: "Operations Manager",
+    company: "Lancaster Security Ltd",
+  },
+  {
+    quote:
+      "Our records were scattered across spreadsheets. Zebnex moved everything into one proper database and now our reports take minutes instead of days.",
+    name: "Samuel Kiprono",
+    role: "Founder",
+    company: "Pure Care Services",
+  },
+  {
+    quote:
+      "The branding work gave us a look we are genuinely proud of — consistent across the shop, the packaging and social media.",
+    name: "Aisha Hassan",
+    role: "Owner",
+    company: "Antique",
+  },
+  {
+    quote:
+      "Responsive, honest about timelines, and they stayed available long after handover. That is rare.",
+    name: "Peter Mwangi",
+    role: "General Manager",
+    company: "KHL",
+  },
+];
+
+export type Plan = {
+  name: string;
+  price: string;
+  note: string;
+  summary: string;
+  features: string[];
+  popular?: boolean;
+};
+
+export const PLANS: Plan[] = [
+  {
+    name: "Starter",
+    price: "From KSh 35,000",
+    note: "one-off project",
+    summary:
+      "For small businesses that need a professional presence online, quickly and affordably.",
+    features: [
+      "Up to 5-page responsive website",
+      "Mobile and tablet optimised",
+      "Contact form and WhatsApp button",
+      "Basic SEO setup",
+      "Domain and hosting guidance",
+      "30 days post-launch support",
+    ],
+  },
+  {
+    name: "Business",
+    price: "From KSh 95,000",
+    note: "one-off project",
+    summary:
+      "For growing businesses that need a website plus the systems behind it working properly.",
+    features: [
+      "Everything in Starter",
+      "Custom design and content management",
+      "Blog, gallery or booking module",
+      "Analytics dashboard setup",
+      "Basic network or cloud configuration",
+      "3 months support and maintenance",
+    ],
+    popular: true,
+  },
+  {
+    name: "Enterprise",
+    price: "Custom quote",
+    note: "scoped per project",
+    summary:
+      "For organisations needing custom software, infrastructure or full brand and security work.",
+    features: [
+      "Custom software development",
+      "Network design and installation",
+      "Database design and migration",
+      "Security audit and staff training",
+      "Full brand identity and guidelines",
+      "Ongoing managed support",
+    ],
+  },
+];
+
+export const RETAINERS = [
+  {
+    name: "IT Support Retainer",
+    price: "From KSh 15,000 / month",
+    body: "Remote and on-site support, monitoring, updates and priority response for your team.",
+  },
+  {
+    name: "Website Care",
+    price: "From KSh 6,000 / month",
+    body: "Hosting oversight, backups, security patching, and content updates each month.",
+  },
+  {
+    name: "Security Monitoring",
+    price: "From KSh 20,000 / month",
+    body: "Endpoint protection, periodic audits, quarterly staff training and incident support.",
+  },
+];
+
+export const FAQS = [
+  {
+    q: "How long does a typical project take?",
+    a: "A straightforward website usually takes 2–3 weeks from approval of the design. Networking installations are often done within a week. Custom software depends on scope — we give you a timeline in the proposal before any work starts.",
+  },
+  {
+    q: "Do you work with businesses outside Nairobi?",
+    a: "Yes. Web, cloud, database and branding work is handled remotely for clients anywhere in Kenya. For networking and on-site installations we travel, and travel costs are stated upfront in the quote.",
+  },
+  {
+    q: "How much does a website cost?",
+    a: "Most small business websites start around KSh 35,000, with larger custom builds priced on scope. Our pricing page lays out what is included at each level.",
+  },
+  {
+    q: "Do you offer payment plans?",
+    a: "Yes. Projects are normally split into a deposit to begin, a milestone payment, and a balance on delivery. Retainers are billed monthly.",
+  },
+  {
+    q: "Who owns the work once it is delivered?",
+    a: "You do. Code, designs, domains and accounts are handed over to you with documentation. We do not hold your business hostage to keep you as a client.",
+  },
+  {
+    q: "What happens after the project is delivered?",
+    a: "Every project includes a support window after launch. Beyond that you can move onto a monthly care or support retainer, or simply call us when you need something.",
+  },
+  {
+    q: "Can you take over a project someone else started?",
+    a: "Often, yes. We review what exists, tell you honestly whether it is worth continuing or rebuilding, and quote accordingly.",
+  },
+  {
+    q: "How do we get started?",
+    a: "Book a free consultation. We talk through what you need, then send a written scope and quote. Nothing is charged until you approve it.",
+  },
+];
