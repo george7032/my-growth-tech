@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 
 import heroImage from "@/assets/hero-office.jpg";
+import aboutTeam from "@/assets/about-team.jpg";
 import projectTenant from "@/assets/project-tenant.jpg";
 import projectTicketing from "@/assets/project-ticketing.jpg";
 import slideAnalytics from "@/assets/slide-analytics.jpg";
@@ -43,6 +44,8 @@ export const Route = createFileRoute("/")({
         content:
           "Zebnex Tech Solutions helps businesses run securely, connect confidently and stand out in the market.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: HomePage,
@@ -97,6 +100,15 @@ const POST_IMAGES = {
   web: slideWeb,
   analytics: slideAnalytics,
 } as const;
+
+const CLIENT_PHOTOS = [
+  aboutTeam,
+  projectTicketing,
+  slideNetwork,
+  projectTenant,
+  slideWeb,
+  slideBranding,
+] as const;
 
 function HomePage() {
   const latest = POSTS.slice(0, 3);
@@ -279,13 +291,19 @@ function HomePage() {
             We're proud to have earned the trust of organizations across different industries — from
             education and hospitality to security and professional services.
           </p>
-          <ul className="mt-10 flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
-            {CLIENTS.map((client) => (
+          <ul className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+            {CLIENTS.map((client, index) => (
               <li
                 key={client}
-                className="font-display text-sm font-medium tracking-wide text-muted-foreground/70 transition-colors hover:text-navy"
+                className="zoom-media hover-lift group relative aspect-[4/3] overflow-hidden rounded-lg border border-border bg-muted shadow-card"
               >
-                {client}
+                <img
+                  src={CLIENT_PHOTOS[index]}
+                  alt={`${client} business partnership`}
+                  loading="lazy"
+                  className="size-full object-cover grayscale-[25%] transition-all duration-700 group-hover:grayscale-0"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/35 to-transparent opacity-50 transition-opacity group-hover:opacity-20" />
               </li>
             ))}
           </ul>

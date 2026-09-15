@@ -28,6 +28,8 @@ export const Route = createFileRoute("/blog")({
         property: "og:description",
         content: "Tech trends, cybersecurity tips, branding strategy and cloud adoption guidance.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: BlogPage,
@@ -62,7 +64,7 @@ function BlogPage() {
     <>
       <PageHeader
         eyebrow="Insights"
-        title="Insights & Ideas"
+        title="Blog & Insights"
         subtitle="Practical thinking on technology, security, and branding — written for business owners and decision-makers, not just engineers."
         image={slideWeb}
       />
