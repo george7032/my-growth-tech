@@ -46,6 +46,10 @@ export function Footer() {
               { to: "/", label: "Home" },
               { to: "/about", label: "About" },
               { to: "/services", label: "Services" },
+              { to: "/portfolio", label: "Portfolio" },
+              { to: "/pricing", label: "Pricing" },
+              { to: "/testimonials", label: "Testimonials" },
+              { to: "/faq", label: "FAQ" },
               { to: "/blog", label: "Blog" },
               { to: "/contact", label: "Contact" },
             ].map((l) => (
