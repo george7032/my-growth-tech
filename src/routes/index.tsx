@@ -22,7 +22,6 @@ import {
 } from "lucide-react";
 
 import heroImage from "@/assets/hero-office.jpg";
-import aboutTeam from "@/assets/about-team.jpg";
 import projectTenant from "@/assets/project-tenant.jpg";
 import projectTicketing from "@/assets/project-ticketing.jpg";
 import slideAnalytics from "@/assets/slide-analytics.jpg";
