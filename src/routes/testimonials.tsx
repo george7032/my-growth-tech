@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Quote } from "lucide-react";
 
-import aboutTeam from "@/assets/about-team.jpg";
+import testimonialsHero from "@/assets/testimonials-hero.jpg";
 import { CtaBand } from "@/components/site/CtaBand";
 import { PageHeader } from "@/components/site/PageHeader";
 import { TESTIMONIALS } from "@/lib/site-data";
@@ -34,7 +34,7 @@ function TestimonialsPage() {
         eyebrow="Testimonials"
         title="What Our Clients Say"
         subtitle="We'd rather you heard it from the businesses we've worked with than from us."
-        image={aboutTeam}
+        image={testimonialsHero}
       />
 
       <div className="container-page py-20">

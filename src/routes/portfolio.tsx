@@ -1,10 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
-import projectTenant from "@/assets/project-tenant.jpg";
-import projectTicketing from "@/assets/project-ticketing.jpg";
-import slideBranding from "@/assets/slide-branding.jpg";
-import slideNetwork from "@/assets/slide-network.jpg";
-import slideWeb from "@/assets/slide-web.jpg";
+import caseBranding from "@/assets/case-branding.jpg";
+import caseSchool from "@/assets/case-school.jpg";
+import caseSecurity from "@/assets/case-security.jpg";
+import caseTenant from "@/assets/case-tenant.jpg";
+import caseTicketing from "@/assets/case-ticketing.jpg";
+import portfolioHero from "@/assets/portfolio-hero.jpg";
 import { CtaBand } from "@/components/site/CtaBand";
 import { PageHeader } from "@/components/site/PageHeader";
 
@@ -34,7 +35,7 @@ const CASES = [
   {
     title: "TUK Ticketing System",
     client: "Tuk tuk transport operator",
-    image: projectTicketing,
+    image: caseTicketing,
     challenge:
       "Fares were collected in cash with paper records, so daily revenue never reconciled and drivers had no way to prove a ticket was valid.",
     solution:
@@ -46,7 +47,7 @@ const CASES = [
   {
     title: "Tenant Management System",
     client: "Property management company",
-    image: projectTenant,
+    image: caseTenant,
     challenge:
       "Units, leases and rent collection were tracked across spreadsheets, making arrears difficult to spot until they were serious.",
     solution:
@@ -58,7 +59,7 @@ const CASES = [
   {
     title: "School Website & Campus Network",
     client: "Embakasi Bedicta Academy",
-    image: slideWeb,
+    image: caseSchool,
     challenge:
       "Parents relied on phone calls for basic information, and staff Wi-Fi did not reach half the classrooms.",
     solution:
@@ -70,7 +71,7 @@ const CASES = [
   {
     title: "Security Firm Systems Hardening",
     client: "Lancaster Security Ltd",
-    image: slideNetwork,
+    image: caseSecurity,
     challenge:
       "Shared passwords, unpatched machines and no backup routine left client data exposed.",
     solution:
@@ -82,7 +83,7 @@ const CASES = [
   {
     title: "Brand Identity & Rollout",
     client: "Antique",
-    image: slideBranding,
+    image: caseBranding,
     challenge:
       "The brand had grown inconsistent — different colours and logos across signage, packaging and social media.",
     solution:
@@ -107,7 +108,7 @@ function PortfolioPage() {
         eyebrow="Portfolio"
         title="Work We've Delivered"
         subtitle="A selection of projects for Kenyan businesses — what the problem was, what we built, and what changed afterwards."
-        image={projectTicketing}
+        image={portfolioHero}
       />
 
       <section className="border-b border-border bg-secondary/30 py-14">

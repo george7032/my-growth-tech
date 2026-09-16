@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
-import heroOffice from "@/assets/hero-office.jpg";
+import faqHero from "@/assets/faq-hero.jpg";
 import { CtaBand } from "@/components/site/CtaBand";
 import { PageHeader } from "@/components/site/PageHeader";
 import {
@@ -53,7 +53,7 @@ function FaqPage() {
         eyebrow="FAQ"
         title="Frequently Asked Questions"
         subtitle="The questions we get asked most often, answered plainly. If yours isn't here, just ask."
-        image={heroOffice}
+        image={faqHero}
       />
 
       <div className="container-page grid gap-12 py-20 lg:grid-cols-[1fr_320px]">

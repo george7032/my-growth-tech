@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 
-import slideAnalytics from "@/assets/slide-analytics.jpg";
+import pricingHero from "@/assets/pricing-hero.jpg";
 import { CtaBand } from "@/components/site/CtaBand";
 import { PageHeader } from "@/components/site/PageHeader";
 import { Button } from "@/components/ui/button";
@@ -43,7 +43,7 @@ function PricingPage() {
         eyebrow="Pricing"
         title="Clear Pricing, No Surprises"
         subtitle="Starting points for the work we do most often. Every project gets a written scope and fixed quote after a free consultation — you approve the number before anything begins."
-        image={slideAnalytics}
+        image={pricingHero}
       />
 
       <div className="container-page py-20">
