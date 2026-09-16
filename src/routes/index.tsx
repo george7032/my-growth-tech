@@ -1,4 +1,10 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
+import clientCare from "@/assets/client-care.jpg";
+import clientLogistics from "@/assets/client-logistics.jpg";
+import clientRetail from "@/assets/client-retail.jpg";
+import clientSchool from "@/assets/client-school.jpg";
+import clientSecurity from "@/assets/client-security.jpg";
+import clientTours from "@/assets/client-tours.jpg";
 import {
   ArrowRight,
   BarChart3,
@@ -16,7 +22,6 @@ import {
 } from "lucide-react";
 
 import heroImage from "@/assets/hero-office.jpg";
-import aboutTeam from "@/assets/about-team.jpg";
 import projectTenant from "@/assets/project-tenant.jpg";
 import projectTicketing from "@/assets/project-ticketing.jpg";
 import slideAnalytics from "@/assets/slide-analytics.jpg";
@@ -102,12 +107,12 @@ const POST_IMAGES = {
 } as const;
 
 const CLIENT_PHOTOS = [
-  aboutTeam,
-  projectTicketing,
-  slideNetwork,
-  projectTenant,
-  slideWeb,
-  slideBranding,
+  clientLogistics,
+  clientSchool,
+  clientRetail,
+  clientTours,
+  clientSecurity,
+  clientCare,
 ] as const;
 
 function HomePage() {
