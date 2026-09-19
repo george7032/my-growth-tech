@@ -10,7 +10,7 @@
  * deploys the app itself.
  */
 import { spawn } from "node:child_process";
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, writeFile, rm } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import path from "node:path";
 
@@ -84,6 +84,7 @@ try {
     await writeFile(file, html, "utf8");
     console.log(`[build-static] ${route} -> ${path.relative(process.cwd(), file)}`);
   }
+  await rm(path.join(outDir, "nitro.json"), { force: true });
   console.log(`\n[build-static] Done — upload the contents of dist/ to your web host.`);
 } finally {
   server.kill("SIGTERM");
