@@ -19,21 +19,13 @@ const IMAGES = {
 } as const;
 
 const CLOSING_CTA: Record<string, { title: string; body: string }> = {
-  "Cybersecurity Tips": {
-    title: "Concerned about your business's security?",
-    body: "Get a free security consultation and an honest view of where your gaps are.",
+  "Management Systems": {
+    title: "Planning a management system?",
+    body: "Let's talk about the records and routines your organization needs to manage.",
   },
-  "Branding Strategy": {
-    title: "Thinking about your brand?",
-    body: "Let's talk about whether a refresh or a rebuild makes more sense for you.",
-  },
-  "Cloud Adoption": {
-    title: "Planning a move to the cloud?",
-    body: "We'll help you size it properly before anything gets migrated.",
-  },
-  "Tech Trends": {
-    title: "Want to talk this through for your business?",
-    body: "Book a free consultation and we'll give you a straight answer.",
+  Websites: {
+    title: "Planning a website for your organization?",
+    body: "Tell us what your visitors need to find and do on your website.",
   },
 };
 
@@ -74,7 +66,7 @@ function PostPage() {
   const related = POSTS.filter((p) => p.category === post.category && p.slug !== post.slug).slice(0, 3);
   const cta = CLOSING_CTA[post.category] ?? {
     title: "Want to talk it through?",
-    body: "Book a free consultation and we'll help you find the right next step.",
+    body: "Tell us whether you need a website or management system and we'll help you find the right next step.",
   };
 
   return (

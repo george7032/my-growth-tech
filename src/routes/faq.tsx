@@ -14,7 +14,7 @@ import { CONTACT, FAQS } from "@/lib/site-data";
 export const Route = createFileRoute("/faq")({
   head: () => ({
     meta: [
-      { title: "FAQ | Timelines, Pricing & How We Work — Zebnex" },
+      { title: "FAQ | Websites & Management Systems — Zebnex" },
       {
         name: "description",
         content:

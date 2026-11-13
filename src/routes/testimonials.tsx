@@ -13,7 +13,7 @@ export const Route = createFileRoute("/testimonials")({
       {
         name: "description",
         content:
-          "Feedback from Kenyan schools, property managers, tour operators and security firms on websites, networks, systems and branding delivered by Zebnex.",
+          "Feedback from organizations in Kenya on the websites and management systems built by Zebnex Tech Solutions.",
       },
       { property: "og:title", content: "What Our Clients Say" },
       {

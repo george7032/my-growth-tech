@@ -10,17 +10,17 @@ import { PLANS, RETAINERS } from "@/lib/site-data";
 export const Route = createFileRoute("/pricing")({
   head: () => ({
     meta: [
-      { title: "Pricing | Website, IT & Branding Packages — Zebnex" },
+      { title: "Pricing | Websites & Management Systems — Zebnex" },
       {
         name: "description",
         content:
-          "Transparent starting prices for websites, custom software, networking, security and branding, plus monthly support retainers for Kenyan businesses.",
+          "Website and management system project pricing, with support options for Kenyan businesses and institutions.",
       },
       { property: "og:title", content: "Clear Pricing, No Surprises" },
       {
         property: "og:description",
         content:
-          "Starting prices for websites, custom systems and monthly IT support — quoted properly before work begins.",
+          "Starting prices for websites and custom management systems, quoted in writing before work begins.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
