@@ -7,27 +7,16 @@ import clientSecurity from "@/assets/client-security.jpg";
 import clientTours from "@/assets/client-tours.jpg";
 import {
   ArrowRight,
-  BarChart3,
-  Cloud,
-  Code2,
-  Database,
+  Blocks,
   Globe,
-  Layers,
-  Network,
-  Palette,
   ShieldCheck,
-  ShieldHalf,
   MapPin,
   TrendingUp,
 } from "lucide-react";
 
-import heroImage from "@/assets/hero-office.jpg";
+import heroImage from "@/assets/zebnex-home-hero.jpg";
 import projectTenant from "@/assets/project-tenant.jpg";
 import projectTicketing from "@/assets/project-ticketing.jpg";
-import slideAnalytics from "@/assets/slide-analytics.jpg";
-import slideBranding from "@/assets/slide-branding.jpg";
-import slideNetwork from "@/assets/slide-network.jpg";
-import slideSecurity from "@/assets/slide-security.jpg";
 import slideWeb from "@/assets/slide-web.jpg";
 import { CtaBand } from "@/components/site/CtaBand";
 import { ImageMarquee } from "@/components/site/ImageMarquee";
@@ -37,17 +26,17 @@ import { CLIENTS, POSTS, PROJECTS, SERVICES } from "@/lib/site-data";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Zebnex Tech Solutions | Technology & Branding for Kenyan Business" },
+      { title: "Zebnex Tech Solutions | Websites & Management Systems in Kenya" },
       {
         name: "description",
         content:
-          "Secure networks, cloud, custom software, websites and brand identity — one technology partner for growing businesses in Kenya. Book a free consultation.",
+          "Professional websites and custom management systems for Kenyan businesses and institutions. Speak with Zebnex Tech Solutions about your project.",
       },
-      { property: "og:title", content: "Technology and Identity, Built for Growth" },
+      { property: "og:title", content: "Websites & Management Systems for Kenyan Organizations" },
       {
         property: "og:description",
         content:
-          "Zebnex Tech Solutions helps businesses run securely, connect confidently and stand out in the market.",
+          "Dependable websites and management systems, tailored to how your organization works.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -56,54 +45,41 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
-const ICONS = {
-  "web-development": Globe,
-  networking: Network,
-  "database-management": Database,
-  "data-analysis": BarChart3,
-  "cloud-services": Cloud,
-  cybersecurity: ShieldHalf,
-  "software-development": Code2,
-  branding: Palette,
-} as const;
-
 const SLIDES = [
-  { src: slideNetwork, label: "Network & infrastructure", caption: "Structured cabling, wireless design and monitoring." },
   { src: projectTicketing, label: "TUK Ticketing System", caption: "Mobile and kiosk ticketing for a transport operator." },
   { src: projectTenant, label: "Tenant Management System", caption: "Units, leases, rent invoicing and arrears in one place." },
-  { src: slideBranding, label: "Brand identity", caption: "Logos, palettes and guidelines that stay consistent." },
-  { src: slideWeb, label: "Websites & web apps", caption: "Fast, responsive sites that are easy to maintain." },
+  { src: slideWeb, label: "Websites", caption: "Clear, responsive websites for businesses and institutions." },
 ];
 
 const REASONS = [
   {
-    icon: Layers,
-    title: "One partner, many disciplines",
-    body: "No juggling multiple vendors for web, network, cloud and brand work.",
+    icon: Globe,
+    title: "Websites built around your goals",
+    body: "Clear, responsive websites that make it easier for customers to understand and reach you.",
   },
   {
     icon: ShieldCheck,
-    title: "Security-first thinking",
-    body: "Every system we build considers protection from day one, not as an afterthought.",
+    title: "Systems shaped around your work",
+    body: "Management systems are planned around your real records, routines and reporting needs.",
   },
   {
     icon: MapPin,
-    title: "Local understanding, global standards",
-    body: "We build for the realities of doing business in Kenya, to the standards used internationally.",
+    title: "Built for organizations in Kenya",
+    body: "We understand local operations and can tailor systems to the way your team works.",
   },
   {
     icon: TrendingUp,
     title: "Solutions that scale with you",
-    body: "What we build today is designed to grow with your business, not to be replaced in a year.",
+    body: "We provide clear handover, training and support options after your project is delivered.",
   },
 ];
 
 const POST_IMAGES = {
-  security: slideSecurity,
-  network: slideNetwork,
-  branding: slideBranding,
   web: slideWeb,
-  analytics: slideAnalytics,
+  analytics: slideWeb,
+  security: slideWeb,
+  network: slideWeb,
+  branding: slideWeb,
 } as const;
 
 const CLIENT_PHOTOS = [
@@ -121,40 +97,36 @@ function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative isolate overflow-hidden bg-navy-deep">
+      <section className="relative isolate min-h-[36rem] overflow-hidden bg-secondary sm:min-h-[42rem]">
         <img
           src={heroImage}
           alt="Team collaborating in a modern office"
-          width={1920}
-          height={1088}
-          className="absolute inset-0 size-full animate-ken-burns object-cover opacity-60"
+          width={1600}
+          height={1024}
+          className="absolute inset-0 size-full animate-ken-burns object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-deep via-navy-deep/90 to-navy-deep/30" />
-        <div className="container-page relative py-28 sm:py-40">
+        <div className="container-page relative flex min-h-[36rem] items-center py-20 sm:min-h-[42rem] sm:py-28">
           <div className="max-w-2xl stagger-children">
-            <p className="eyebrow text-silver/70">Zebnex Tech Solutions</p>
-            <h1 className="mt-6 text-4xl leading-[1.08] font-semibold text-primary-foreground sm:text-5xl lg:text-6xl">
-              Technology and Identity, Built for Growth
+            <p className="eyebrow text-foreground">Zebnex Tech Solutions</p>
+            <h1 className="mt-6 text-4xl leading-[1.08] font-semibold text-foreground sm:text-5xl lg:text-6xl">
+              Websites and Management Systems That Work
             </h1>
-            <div className="mt-8 h-px w-24 bg-silver/70" />
-            <p className="mt-8 text-base leading-relaxed text-primary-foreground/75 sm:text-lg">
-              Zebnex Tech Solutions helps businesses run securely, connect confidently, and stand out
-              in the market — through smart, reliable technology and branding that leaves a lasting
-              impression. Whether you're building your first website, securing your network, or
-              reimagining your brand identity, we bring the technical depth and creative eye to get
-              it right.
+            <div className="mt-8 h-px w-24 bg-navy/70" />
+            <p className="mt-8 text-base leading-relaxed text-foreground sm:text-lg">
+              We build professional websites and practical management systems for Kenyan businesses
+              and institutions — designed around the way you work.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <Link
                 to="/contact"
-                className="group sheen-on-hover inline-flex items-center gap-2 rounded-md bg-primary-foreground px-7 py-4 text-sm font-medium text-navy transition-all hover:-translate-y-0.5 hover:bg-silver-muted hover:shadow-lift"
+                className="group sheen-on-hover inline-flex items-center gap-2 rounded-md bg-primary px-7 py-4 text-sm font-medium text-primary-foreground transition-all hover:-translate-y-0.5 hover:bg-primary/90 hover:shadow-lift"
               >
                 Book a Free Consultation
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
                 to="/services"
-                className="inline-flex items-center gap-2 rounded-md border border-primary-foreground/30 px-7 py-4 text-sm font-medium text-primary-foreground transition-all hover:-translate-y-0.5 hover:border-primary-foreground/60 hover:bg-primary-foreground/10"
+                className="inline-flex items-center gap-2 rounded-md border border-foreground/30 bg-background/70 px-7 py-4 text-sm font-medium text-foreground transition-all hover:-translate-y-0.5 hover:border-foreground/60 hover:bg-background"
               >
                 Explore our services
               </Link>
@@ -166,26 +138,24 @@ function HomePage() {
       {/* Introduction strip */}
       <section className="container-page grid gap-12 py-20 lg:grid-cols-2 lg:items-center lg:gap-16">
         <div>
-          <p className="eyebrow">End to end</p>
+          <p className="eyebrow">About Zebnex</p>
           <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">
             Your Technology Partner, End to End
           </h2>
           <div className="hairline mt-6" />
           <p className="mt-6 leading-relaxed text-muted-foreground">
-            Most businesses don't need a dozen different vendors — they need one partner who
-            understands the whole picture. From the servers that keep your business running, to the
-            software that solves your unique problems, to the brand that makes customers remember
-            you, Zebnex brings it all under one roof.
+            We help businesses present themselves professionally online and manage day-to-day work
+            with dependable systems tailored to their operations.
           </p>
           <p className="mt-4 leading-relaxed text-muted-foreground">
-            We work with startups taking their first digital steps and established companies scaling
-            into new markets, tailoring every solution to where you are and where you're headed.
+            From company and school websites to systems for fees, bookings, stock and property,
+            every project starts with the needs of your organization.
           </p>
         </div>
         <div className="zoom-media hover-lift overflow-hidden rounded-lg border border-border shadow-card">
           <img
-            src={slideNetwork}
-            alt="Server room supporting business operations"
+            src={slideWeb}
+            alt="Website design displayed on a computer"
             width={1600}
             height={1000}
             loading="lazy"
@@ -201,15 +171,15 @@ function HomePage() {
       <section className="container-page py-20">
         <p className="eyebrow">What we do</p>
         <h2 className="mt-4 max-w-2xl text-3xl font-semibold sm:text-4xl">
-          A full spectrum of technology and branding services
+          Two focused services for your organization
         </h2>
         <p className="mt-5 max-w-2xl text-muted-foreground">
-          Designed to work together or stand alone — whatever your business needs right now.
+          Professional websites and custom management systems, designed around your needs.
         </p>
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid gap-5 sm:grid-cols-2">
           {SERVICES.map((service) => {
-            const Icon = ICONS[service.slug as keyof typeof ICONS];
+            const Icon = service.slug === "websites" ? Globe : Blocks;
             return (
               <Link
                 key={service.slug}
@@ -359,7 +329,7 @@ function HomePage() {
 
       <CtaBand
         title="Ready to Build Something That Lasts?"
-        body="Whether you need a secure network, a standout website, or a brand people remember — let's talk about what's next for your business."
+          body="Tell us whether you need a website or a management system, and we'll help you plan the right next step."
         buttonLabel="Get a Free Consultation"
       />
     </>
