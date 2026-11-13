@@ -1,9 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import slideAnalytics from "@/assets/slide-analytics.jpg";
-import slideBranding from "@/assets/slide-branding.jpg";
-import slideNetwork from "@/assets/slide-network.jpg";
-import slideSecurity from "@/assets/slide-security.jpg";
+import projectTenant from "@/assets/project-tenant.jpg";
 import slideWeb from "@/assets/slide-web.jpg";
 import { CtaBand } from "@/components/site/CtaBand";
 import { PageHeader } from "@/components/site/PageHeader";
@@ -12,29 +9,28 @@ import { SERVICES } from "@/lib/site-data";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services | Web, Cloud, Security & Branding — Zebnex" },
+      { title: "Services | Websites & Management Systems — Zebnex" },
       {
         name: "description",
         content:
-          "Web development, networking, databases, data analysis, cloud, cybersecurity, custom software and branding — tailored to your business.",
+          "Explore Zebnex's two services: professional websites and custom management systems for Kenyan organizations.",
       },
-      { property: "og:title", content: "Solutions Built Around Your Business" },
+      { property: "og:title", content: "Websites & Management Systems" },
       {
         property: "og:description",
         content:
-          "From the infrastructure that keeps you running to the brand that makes you memorable.",
+          "Websites and day-to-day management systems, designed around how your organization works.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: ServicesPage,
 });
 
 const VISUALS: Record<string, string> = {
-  "web-development": slideWeb,
-  networking: slideNetwork,
-  "data-analysis": slideAnalytics,
-  cybersecurity: slideSecurity,
-  branding: slideBranding,
+  websites: slideWeb,
+  "management-systems": projectTenant,
 };
 
 const STEPS = [
@@ -61,9 +57,9 @@ function ServicesPage() {
     <>
       <PageHeader
         eyebrow="Services"
-        title="Solutions Built Around Your Business"
-        subtitle="From the infrastructure that keeps you running to the brand that makes you memorable, our services are designed to work together — or stand entirely on their own."
-        image={slideBranding}
+        title="Websites & Management Systems"
+        subtitle="We focus on two services: professional websites and custom management systems for businesses and institutions."
+        image={slideWeb}
       />
 
       <div className="container-page py-20">
@@ -128,8 +124,8 @@ function ServicesPage() {
       </section>
 
       <CtaBand
-        title="Not Sure Which Service You Need?"
-        body="That's exactly what the free consultation is for — tell us what you're trying to achieve, and we'll help you figure out the right starting point."
+        title="Need a Website or Management System?"
+        body="Tell us what your organization needs, and we'll help you plan the right starting point."
         buttonLabel="Get a Free Consultation"
       />
     </>

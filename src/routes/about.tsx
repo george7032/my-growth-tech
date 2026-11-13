@@ -9,18 +9,20 @@ import { PageHeader } from "@/components/site/PageHeader";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Zebnex Tech Solutions | Built on Trust" },
+      { title: "About Zebnex Tech Solutions | Kenyan Website & Systems Team" },
       {
         name: "description",
         content:
-          "Zebnex Tech Solutions combines technical depth in networks, cloud and software with branding expertise, serving businesses across Kenya.",
+          "Learn about Zebnex Tech Solutions, a Kenyan company focused on professional websites and custom management systems.",
       },
       { property: "og:title", content: "Built on Trust. Driven by Technology." },
       {
         property: "og:description",
         content:
-          "Our story, leadership, mission and values — one partner for a business's technical backbone and its identity.",
+          "Our story, leadership, mission and values — building dependable websites and management systems for organizations.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: AboutPage,
@@ -46,30 +48,25 @@ function AboutPage() {
     <>
       <PageHeader
         eyebrow="About us"
-        title="Built on Trust. Driven by Technology."
-        subtitle="Zebnex Tech Solutions exists to help businesses navigate a digital world with confidence — combining technical expertise with a genuine understanding of what makes brands succeed."
+        title="Websites & Systems Built Around Your Work"
+        subtitle="Zebnex Tech Solutions helps Kenyan businesses and institutions build their online presence and manage everyday operations with dependable technology."
         image={heroImage}
       />
 
       <section className="container-page grid gap-12 py-20 lg:grid-cols-2 lg:items-center lg:gap-16">
         <div>
           <p className="eyebrow">Our story</p>
-          <h2 className="mt-4 text-3xl font-semibold">Closing the gap between tech and brand</h2>
+        <h2 className="mt-4 text-3xl font-semibold">Technology for daily work</h2>
           <div className="hairline mt-6" />
           <p className="mt-6 leading-relaxed text-muted-foreground">
-            Zebnex Tech Solutions was founded on a simple observation: businesses were being forced
-            to choose between good technology and good branding, working with separate vendors who
-            rarely understood the full picture of what a company needed. We built Zebnex to close
-            that gap — a single partner capable of handling the technical backbone of a business
-            (networks, databases, cloud infrastructure, cybersecurity) while also shaping how that
-            business presents itself to the world (websites, software, brand identity).
+            Zebnex Tech Solutions was founded to help organizations use practical technology in
+            their day-to-day work. We focus on two services: websites that clearly present an
+            organization, and management systems that bring everyday records and operations into
+            one place.
           </p>
           <p className="mt-4 leading-relaxed text-muted-foreground">
-            Today, we work with organizations across education, hospitality, security, and
-            professional services — helping them build systems that are secure and reliable, and
-            identities that are memorable and professional. Every engagement starts with the same
-            question: what does this business actually need to move forward, not just what's trendy
-            or convenient for us to sell.
+            We work with organizations across education, property, retail and tourism. Every
+            engagement starts by understanding what the organization needs and how its team works.
           </p>
         </div>
         <div className="zoom-media hover-lift overflow-hidden rounded-lg border border-border shadow-card">
@@ -87,19 +84,16 @@ function AboutPage() {
       <section className="border-y border-border bg-secondary/30 py-20">
         <div className="container-page max-w-3xl">
           <p className="eyebrow">Company profile</p>
-          <h2 className="mt-4 text-3xl font-semibold">Tailored, never templated</h2>
+        <h2 className="mt-4 text-3xl font-semibold">Two services, tailored to your needs</h2>
           <div className="hairline mt-6" />
           <p className="mt-6 leading-relaxed text-muted-foreground">
-            Zebnex Tech Solutions provides tailored technology solutions for businesses of all sizes.
-            We combine deep technical capability — web development, networking, database management,
-            data analysis, cloud services, cybersecurity, and software development — with strategic
-            branding expertise, so that the systems a business runs on and the image it presents to
-            customers are built with the same level of care.
+            Zebnex Tech Solutions provides professional websites and custom management systems for
+            businesses and institutions. Each website is planned around the people who need to find
+            and use it. Each system is planned around the organization's records and routines.
           </p>
           <p className="mt-4 leading-relaxed text-muted-foreground">
-            We don't believe in one-size-fits-all packages. Every business we work with has a
-            different starting point, different constraints, and different goals — and our job is to
-            design solutions around that reality, not around a template.
+            Every organization has different goals and routines. We plan each website or system
+            around that reality, not around a one-size-fits-all template.
           </p>
         </div>
       </section>
@@ -129,11 +123,9 @@ function AboutPage() {
               </p>
             </blockquote>
             <p className="mt-8 leading-relaxed text-muted-foreground">
-              Ian founded Zebnex Tech Solutions with a vision of making enterprise-grade technology
-              and branding accessible to businesses that might otherwise be priced out of it or
-              underserved by generalist agencies. Under his leadership, Zebnex has grown into a
-              trusted partner for organizations looking for technical depth without losing the
-              personal, consultative approach of a smaller firm.
+              Ian founded Zebnex Tech Solutions to make practical technology accessible to
+              organizations across Kenya. He leads the team in building websites and management
+              systems with a personal, consultative approach.
             </p>
           </div>
         </div>
@@ -175,10 +167,8 @@ function AboutPage() {
         <div className="container-page max-w-3xl">
           <p className="eyebrow">Why we do this work</p>
           <p className="mt-6 font-display text-xl leading-relaxed">
-            Technology and branding both come down to the same thing: helping a business be
-            understood — by the systems it depends on, and by the customers it serves. We got into
-            this work because we enjoy solving that problem for different kinds of businesses, again
-            and again, in ways that actually hold up over time.
+            We build technology to help organizations communicate clearly online and keep daily
+            operations organized. Our work starts with understanding the people who will use it.
           </p>
         </div>
       </section>

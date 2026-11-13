@@ -2,15 +2,8 @@ import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 
 const SERVICE_OPTIONS = [
-  "Web Development",
-  "Networking",
-  "Database Management",
-  "Data Analysis",
-  "Cloud Services",
-  "Cybersecurity",
-  "Software Development",
-  "Branding",
-  "Other",
+  "Websites",
+  "Management Systems",
 ] as const;
 
 const ContactSchema = z.object({
