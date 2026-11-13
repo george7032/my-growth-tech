@@ -24,92 +24,26 @@ export type Service = {
 
 export const SERVICES: Service[] = [
   {
-    slug: "web-development",
-    title: "Web Development",
-    tagline: "Modern, responsive websites tailored to your brand.",
+    slug: "websites",
+    title: "Websites",
+    tagline: "Professional, responsive websites built for your organization.",
     body: [
-      "Your website is often the first interaction a customer has with your business — it needs to load fast, work flawlessly on every device, and reflect who you actually are.",
-      "We design and build websites that balance clean, modern aesthetics with real functionality: easy content management, strong SEO foundations, and the flexibility to grow as your business does. Whether you need a simple informational site, a full e-commerce platform, or a custom web application, we build it to be fast, secure, and easy for your team to maintain.",
+      "Your website is often the first interaction a customer has with your organization. We build clear, fast websites that work across phones and computers and make it easy for visitors to find the information they need.",
+      "From company and school websites to e-commerce, booking platforms and customer portals, each site is designed around your goals and the way your team works.",
     ],
     included:
-      "Custom design, mobile responsiveness, CMS setup, basic SEO optimization, hosting guidance, ongoing maintenance options.",
+      "Custom design, mobile responsiveness, content pages, contact options, basic search setup, hosting guidance and optional ongoing care.",
   },
   {
-    slug: "networking",
-    title: "Networking",
-    tagline: "Secure, scalable infrastructure for seamless connectivity.",
+    slug: "management-systems",
+    title: "Management Systems",
+    tagline: "Custom web-based systems for day-to-day operations and clear reporting.",
     body: [
-      "A business runs on its network — when it's slow or unreliable, everything downstream suffers.",
-      "We design, install, and maintain networking solutions that keep your offices, teams, and systems connected without interruption. This includes structured cabling, wireless network design, VPN setup for remote teams, and network security configuration, all built to scale as your team grows or your office expands.",
+      "Replace scattered notebooks and spreadsheets with one dependable system for the records your organization relies on each day.",
+      "We build management systems around your workflows, with useful records, payment tracking, reports and staff access. Systems can be tailored for schools, property operations, retail, transport and other organizations.",
     ],
     included:
-      "Network design and installation, wireless coverage planning, VPN and remote access setup, ongoing monitoring and support.",
-  },
-  {
-    slug: "database-management",
-    title: "Database Management",
-    tagline: "Efficient, reliable data storage and optimization.",
-    body: [
-      "Your data is one of your most valuable business assets — it needs to be organized, accessible, and protected.",
-      "We design and manage databases that keep your information structured and performant, whether you're running a small customer database or a complex system with years of transactional history. We also help businesses migrate from outdated or fragmented systems (spreadsheets, legacy software) into properly structured, scalable databases.",
-    ],
-    included:
-      "Database design and setup, performance optimization, data migration, backup and recovery planning, ongoing management.",
-  },
-  {
-    slug: "data-analysis",
-    title: "Data Analysis",
-    tagline: "Actionable insights to drive smarter decisions.",
-    body: [
-      "Collecting data is only useful if you can act on it.",
-      "We help businesses turn raw data — sales figures, customer behavior, operational metrics — into clear insights that inform real decisions. That might mean a dashboard giving leadership a real-time view of performance, or a one-time deep analysis to answer a specific business question. Either way, the goal is the same: less guesswork, more clarity.",
-    ],
-    included:
-      "Data cleaning and structuring, dashboard and reporting setup, trend and performance analysis, custom reporting for leadership teams.",
-  },
-  {
-    slug: "cloud-services",
-    title: "Cloud Services",
-    tagline: "Scalable cloud solutions for flexibility and growth.",
-    body: [
-      "Moving to the cloud — or optimizing an existing cloud setup — gives businesses the flexibility to scale without the overhead of managing physical infrastructure.",
-      "We help businesses plan and execute cloud migrations, set up cloud-based storage and computing resources, and configure systems for cost efficiency and reliability. Whether you're cloud-native from day one or transitioning from on-premise systems, we tailor the setup to your actual usage and budget.",
-    ],
-    included:
-      "Cloud migration planning and execution, cloud infrastructure setup, cost optimization, ongoing cloud management and support.",
-  },
-  {
-    slug: "cybersecurity",
-    title: "Cybersecurity",
-    tagline: "Protecting businesses against digital threats.",
-    body: [
-      "Cyber threats don't discriminate by business size — small and medium businesses are frequently targeted precisely because they're assumed to have weaker defenses.",
-      "We help close that gap with practical, proportionate security measures: network security, endpoint protection, staff awareness training, and incident response planning. Our approach is to build security into your systems from the start, rather than bolting it on after something goes wrong.",
-    ],
-    included:
-      "Security audits, network and endpoint protection setup, staff security training, incident response planning, ongoing monitoring.",
-  },
-  {
-    slug: "software-development",
-    title: "Software Development",
-    tagline: "Custom solutions built to solve real business challenges.",
-    body: [
-      "Off-the-shelf software doesn't always fit the way your business actually operates.",
-      "We build custom software — internal tools, customer-facing applications, automation systems — designed around your specific workflows rather than forcing you to adapt to someone else's. From initial concept through development, testing, and deployment, we work closely with your team to make sure what we build actually gets used and actually solves the problem.",
-    ],
-    included:
-      "Requirements and scoping, custom application development, integration with existing systems, testing and deployment, post-launch support.",
-  },
-  {
-    slug: "branding",
-    title: "Branding",
-    tagline: "Helping businesses stand out with strong visual identity and strategy.",
-    body: [
-      "Good branding isn't just a logo — it's a consistent, deliberate identity that shows up everywhere your business is seen: your website, your signage, your social media, your proposals.",
-      "We help businesses develop that identity from the ground up, or refine an existing brand that's grown inconsistent over time. This includes logo design, color and typography systems, brand guidelines, and messaging strategy — everything needed to make a business instantly recognizable.",
-    ],
-    included:
-      "Logo and visual identity design, brand guidelines documentation, messaging and positioning strategy, brand rollout across materials.",
+      "Workflow planning, tailored records and modules, payment and messaging integrations where needed, operational reports, staff training and ongoing support options.",
   },
 ];
 
@@ -122,17 +56,12 @@ export const CLIENTS = [
   "Pure Care Services",
 ];
 
-export const CATEGORIES = [
-  "Tech Trends",
-  "Cybersecurity Tips",
-  "Branding Strategy",
-  "Cloud Adoption",
-] as const;
+export const CATEGORIES = ["Websites", "Management Systems"] as const;
 
 export type Post = {
   slug: string;
   title: string;
-  category: (typeof CATEGORIES)[number];
+  category: string;
   excerpt: string;
   date: string;
   readTime: string;
@@ -140,7 +69,7 @@ export type Post = {
   body: { heading: string; paragraphs: string[] }[];
 };
 
-export const POSTS: Post[] = [
+const ALL_POSTS: Post[] = [
   {
     slug: "signs-your-business-network-needs-an-upgrade",
     title: "5 Signs Your Business Network Needs an Upgrade",
@@ -378,18 +307,29 @@ export const POSTS: Post[] = [
   },
 ];
 
+export const POSTS = ALL_POSTS.filter((post) =>
+  [
+    "cloud-vs-on-premise",
+    "what-makes-a-website-convert",
+    "choosing-the-right-database",
+  ].includes(post.slug),
+).map((post) => ({
+  ...post,
+  category: post.slug === "what-makes-a-website-convert" ? "Websites" : "Management Systems",
+}));
+
 export const PROJECTS = [
   {
     title: "TUK Ticketing System",
     summary:
       "A digital ticketing platform for a tuk tuk transport operator — mobile ticket purchase, kiosk issuing, driver verification and daily revenue reporting in one system.",
-    tags: ["Software Development", "Database Management", "Data Analysis"],
+    tags: ["Management Systems"],
   },
   {
     title: "Tenant Management System",
     summary:
       "A property management platform covering units, leases, rent invoicing and maintenance requests, giving landlords a live view of collections and arrears.",
-    tags: ["Software Development", "Cloud Services", "Web Development"],
+    tags: ["Management Systems"],
   },
 ];
 
@@ -403,7 +343,7 @@ export type Testimonial = {
 export const TESTIMONIALS: Testimonial[] = [
   {
     quote:
-      "Zebnex rebuilt our school website and set up the office network in the same month. Parents can finally find information without calling us, and the Wi-Fi reaches every classroom.",
+      "Zebnex rebuilt our school website. Parents can finally find information without calling us.",
     name: "Grace Wanjiru",
     role: "Administrator",
     company: "Embakasi Bedicta Academy",
@@ -417,24 +357,11 @@ export const TESTIMONIALS: Testimonial[] = [
   },
   {
     quote:
-      "They audited our systems, closed the gaps and trained our staff on phishing. Practical work, explained in language the whole team understood.",
-    name: "Mercy Njeri",
-    role: "Operations Manager",
-    company: "Lancaster Security Ltd",
-  },
-  {
-    quote:
+      "The booking site they built has paid for itself several times over. Enquiries come in overnight now instead of only when someone is at the phone.",
       "Our records were scattered across spreadsheets. Zebnex moved everything into one proper database and now our reports take minutes instead of days.",
     name: "Samuel Kiprono",
     role: "Founder",
     company: "Pure Care Services",
-  },
-  {
-    quote:
-      "The branding work gave us a look we are genuinely proud of — consistent across the shop, the packaging and social media.",
-    name: "Aisha Hassan",
-    role: "Owner",
-    company: "Antique",
   },
   {
     quote:
@@ -475,13 +402,12 @@ export const PLANS: Plan[] = [
     price: "From KSh 95,000",
     note: "one-off project",
     summary:
-      "For growing businesses that need a website plus the systems behind it working properly.",
+      "For growing businesses that need a larger website or a website connected to their operations.",
     features: [
       "Everything in Starter",
       "Custom design and content management",
       "Blog, gallery or booking module",
-      "Analytics dashboard setup",
-      "Basic network or cloud configuration",
+      "Management system integrations",
       "3 months support and maintenance",
     ],
     popular: true,
@@ -491,44 +417,38 @@ export const PLANS: Plan[] = [
     price: "Custom quote",
     note: "scoped per project",
     summary:
-      "For organisations needing custom software, infrastructure or full brand and security work.",
+      "For organizations that need a tailored management system for their operations.",
     features: [
-      "Custom software development",
-      "Network design and installation",
-      "Database design and migration",
-      "Security audit and staff training",
-      "Full brand identity and guidelines",
-      "Ongoing managed support",
+      "Custom management system modules",
+      "Operational records and reporting",
+      "Payment and messaging integrations where needed",
+      "Staff training and handover",
+      "Ongoing system support options",
     ],
   },
 ];
 
 export const RETAINERS = [
   {
-    name: "IT Support Retainer",
+    name: "Management System Support",
     price: "From KSh 15,000 / month",
-    body: "Remote and on-site support, monitoring, updates and priority response for your team.",
+    body: "System updates, user assistance, monitoring and ongoing improvements for your team.",
   },
   {
     name: "Website Care",
     price: "From KSh 6,000 / month",
     body: "Hosting oversight, backups, security patching, and content updates each month.",
   },
-  {
-    name: "Security Monitoring",
-    price: "From KSh 20,000 / month",
-    body: "Endpoint protection, periodic audits, quarterly staff training and incident support.",
-  },
 ];
 
 export const FAQS = [
   {
     q: "How long does a typical project take?",
-    a: "A straightforward website usually takes 2–3 weeks from approval of the design. Networking installations are often done within a week. Custom software depends on scope — we give you a timeline in the proposal before any work starts.",
+    a: "A straightforward website usually takes 2–3 weeks from approval of the design. A management system depends on its modules and workflows; we give you a timeline in the proposal before work starts.",
   },
   {
     q: "Do you work with businesses outside Nairobi?",
-    a: "Yes. Web, cloud, database and branding work is handled remotely for clients anywhere in Kenya. For networking and on-site installations we travel, and travel costs are stated upfront in the quote.",
+    a: "Yes. We work with organizations across Kenya. Website projects can be handled remotely, and we arrange consultations and system training to suit your team.",
   },
   {
     q: "How much does a website cost?",

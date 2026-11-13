@@ -21,12 +21,12 @@ export const Route = createFileRoute("/blog")({
       {
         name: "description",
         content:
-          "Practical thinking on technology, security and branding — written for business owners and decision-makers, not just engineers.",
+          "Practical guidance on websites and management systems for Kenyan business owners and institutions.",
       },
       { property: "og:title", content: "Insights & Ideas" },
       {
         property: "og:description",
-        content: "Tech trends, cybersecurity tips, branding strategy and cloud adoption guidance.",
+        content: "Ideas and guidance on websites and management systems for Kenyan organizations.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -65,7 +65,7 @@ function BlogPage() {
       <PageHeader
         eyebrow="Insights"
         title="Blog & Insights"
-        subtitle="Practical thinking on technology, security, and branding — written for business owners and decision-makers, not just engineers."
+        subtitle="Practical guidance on websites and management systems for Kenyan business owners and institutions."
         image={slideWeb}
       />
 

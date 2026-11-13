@@ -1,8 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
-import caseBranding from "@/assets/case-branding.jpg";
 import caseSchool from "@/assets/case-school.jpg";
-import caseSecurity from "@/assets/case-security.jpg";
 import caseTenant from "@/assets/case-tenant.jpg";
 import caseTicketing from "@/assets/case-ticketing.jpg";
 import portfolioHero from "@/assets/portfolio-hero.jpg";
@@ -16,13 +14,13 @@ export const Route = createFileRoute("/portfolio")({
       {
         name: "description",
         content:
-          "Real projects delivered for Kenyan businesses — custom software, websites, networks, databases and brand identities, with the outcome of each.",
+          "Selected websites and management systems built for Kenyan businesses and institutions.",
       },
       { property: "og:title", content: "Work We've Delivered for Kenyan Businesses" },
       {
         property: "og:description",
         content:
-          "Ticketing systems, tenant management, school websites, office networks and brand identities.",
+          "Management systems and websites tailored to the needs of local organizations.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -42,7 +40,7 @@ const CASES = [
       "A digital ticketing platform with mobile ticket purchase, kiosk issuing, driver-side verification, and a reporting dashboard for management.",
     result:
       "Revenue is reconciled the same day, disputes over fares dropped sharply, and management can see performance per route.",
-    tags: ["Software Development", "Database Management", "Data Analysis"],
+    tags: ["Management Systems"],
   },
   {
     title: "Tenant Management System",
@@ -54,51 +52,27 @@ const CASES = [
       "A cloud-hosted platform covering units, leases, rent invoicing and maintenance requests, with automatic statements for landlords.",
     result:
       "Landlords get a live view of collections and arrears, and maintenance requests no longer get lost between calls.",
-    tags: ["Software Development", "Cloud Services", "Web Development"],
+    tags: ["Management Systems"],
   },
   {
-    title: "School Website & Campus Network",
+    title: "School Website",
     client: "Embakasi Bedicta Academy",
     image: caseSchool,
     challenge:
-      "Parents relied on phone calls for basic information, and staff Wi-Fi did not reach half the classrooms.",
+      "Parents relied on phone calls to get basic school information and updates.",
     solution:
-      "A responsive school website with admissions information and announcements, plus structured cabling and wireless coverage across the campus.",
+      "A responsive school website with admissions information and announcements for parents.",
     result:
-      "Routine enquiry calls fell noticeably and staff can work reliably from any building.",
-    tags: ["Web Development", "Networking"],
-  },
-  {
-    title: "Security Firm Systems Hardening",
-    client: "Lancaster Security Ltd",
-    image: caseSecurity,
-    challenge:
-      "Shared passwords, unpatched machines and no backup routine left client data exposed.",
-    solution:
-      "A security audit followed by multi-factor authentication, endpoint protection, tested backups and quarterly staff awareness training.",
-    result:
-      "Phishing attempts are now reported rather than clicked, and recovery from a lost device takes hours instead of days.",
-    tags: ["Cybersecurity", "Networking"],
-  },
-  {
-    title: "Brand Identity & Rollout",
-    client: "Antique",
-    image: caseBranding,
-    challenge:
-      "The brand had grown inconsistent — different colours and logos across signage, packaging and social media.",
-    solution:
-      "A full identity system: logo refinement, colour and typography rules, and written guidelines rolled out across every customer touchpoint.",
-    result:
-      "One recognisable look everywhere, and staff can produce on-brand materials without asking a designer.",
-    tags: ["Branding"],
+      "Parents can find essential school information and updates online.",
+    tags: ["Websites"],
   },
 ];
 
 const STATS = [
-  { value: "40+", label: "Projects delivered" },
-  { value: "6", label: "Industries served" },
-  { value: "8", label: "Service areas" },
-  { value: "100%", label: "Work handed over to clients" },
+  { value: "02", label: "Focused services" },
+  { value: "Websites", label: "For businesses and institutions" },
+  { value: "Systems", label: "Tailored to daily operations" },
+  { value: "Kenya", label: "Local project support" },
 ];
 
 function PortfolioPage() {

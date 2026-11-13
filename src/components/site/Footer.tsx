@@ -35,7 +35,7 @@ export function Footer() {
             <span className="font-display font-semibold">Zebnex Tech Solutions</span>
           </div>
           <p className="mt-4 max-w-xs text-sm text-muted-foreground">
-            Empowering Businesses Through Technology &amp; Identity
+            Websites and management systems for Kenyan businesses and institutions.
           </p>
         </div>
 

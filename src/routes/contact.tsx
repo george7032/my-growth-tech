@@ -16,32 +16,27 @@ import { CONTACT } from "@/lib/site-data";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact Zebnex Tech Solutions | Free Consultation" },
+      { title: "Contact Zebnex Tech Solutions | Websites & Management Systems" },
       {
         name: "description",
         content:
-          "Talk to Zebnex Tech Solutions about your website, network, cloud, security or brand. Call +254 115 339 092 or send a message.",
+          "Contact Zebnex Tech Solutions about a website or management system for your organization. Call +254 115 339 092 or send a message.",
       },
       { property: "og:title", content: "Let's Build Something Together" },
       {
         property: "og:description",
         content: "Reach out about a specific project or just explore what's possible.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: ContactPage,
 });
 
 const SERVICES = [
-  "Web Development",
-  "Networking",
-  "Database Management",
-  "Data Analysis",
-  "Cloud Services",
-  "Cybersecurity",
-  "Software Development",
-  "Branding",
-  "Other",
+  "Websites",
+  "Management Systems",
 ] as const;
 
 const FAQS = [
@@ -51,7 +46,7 @@ const FAQS = [
   },
   {
     q: "Do you work with businesses outside Nairobi?",
-    a: "Yes — many of our services (web, software, cloud, branding) can be delivered fully remotely, and we can arrange on-site visits for networking and infrastructure work when needed.",
+    a: "Yes. Website projects can be handled remotely, and we arrange consultations and system training to suit your team across Kenya.",
   },
   {
     q: "What does the free consultation actually involve?",
@@ -74,7 +69,7 @@ function ContactPage() {
           name: String(form.get("name") ?? ""),
           email: String(form.get("email") ?? ""),
           phone: String(form.get("phone") ?? ""),
-          service: String(form.get("service") ?? "Other") as (typeof SERVICES)[number],
+          service: String(form.get("service") ?? "Websites") as (typeof SERVICES)[number],
           message: String(form.get("message") ?? ""),
         },
       });

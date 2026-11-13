@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep site-wide typography on semantic CSS font tokens; Arial is the brand's system font for dependable local rendering.
