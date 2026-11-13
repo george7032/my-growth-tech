@@ -56,17 +56,12 @@ export const CLIENTS = [
   "Pure Care Services",
 ];
 
-export const CATEGORIES = [
-  "Tech Trends",
-  "Cybersecurity Tips",
-  "Branding Strategy",
-  "Cloud Adoption",
-] as const;
+export const CATEGORIES = ["Websites", "Management Systems"] as const;
 
 export type Post = {
   slug: string;
   title: string;
-  category: (typeof CATEGORIES)[number];
+  category: string;
   excerpt: string;
   date: string;
   readTime: string;
@@ -74,7 +69,7 @@ export type Post = {
   body: { heading: string; paragraphs: string[] }[];
 };
 
-export const POSTS: Post[] = [
+const ALL_POSTS: Post[] = [
   {
     slug: "signs-your-business-network-needs-an-upgrade",
     title: "5 Signs Your Business Network Needs an Upgrade",
@@ -312,18 +307,29 @@ export const POSTS: Post[] = [
   },
 ];
 
+export const POSTS = ALL_POSTS.filter((post) =>
+  [
+    "cloud-vs-on-premise",
+    "what-makes-a-website-convert",
+    "choosing-the-right-database",
+  ].includes(post.slug),
+).map((post) => ({
+  ...post,
+  category: post.slug === "what-makes-a-website-convert" ? "Websites" : "Management Systems",
+}));
+
 export const PROJECTS = [
   {
     title: "TUK Ticketing System",
     summary:
       "A digital ticketing platform for a tuk tuk transport operator — mobile ticket purchase, kiosk issuing, driver verification and daily revenue reporting in one system.",
-    tags: ["Software Development", "Database Management", "Data Analysis"],
+    tags: ["Management Systems"],
   },
   {
     title: "Tenant Management System",
     summary:
       "A property management platform covering units, leases, rent invoicing and maintenance requests, giving landlords a live view of collections and arrears.",
-    tags: ["Software Development", "Cloud Services", "Web Development"],
+    tags: ["Management Systems"],
   },
 ];
 
@@ -337,7 +343,7 @@ export type Testimonial = {
 export const TESTIMONIALS: Testimonial[] = [
   {
     quote:
-      "Zebnex rebuilt our school website and set up the office network in the same month. Parents can finally find information without calling us, and the Wi-Fi reaches every classroom.",
+      "Zebnex rebuilt our school website. Parents can finally find information without calling us.",
     name: "Grace Wanjiru",
     role: "Administrator",
     company: "Embakasi Bedicta Academy",
@@ -351,24 +357,11 @@ export const TESTIMONIALS: Testimonial[] = [
   },
   {
     quote:
-      "They audited our systems, closed the gaps and trained our staff on phishing. Practical work, explained in language the whole team understood.",
-    name: "Mercy Njeri",
-    role: "Operations Manager",
-    company: "Lancaster Security Ltd",
-  },
-  {
-    quote:
+      "The booking site they built has paid for itself several times over. Enquiries come in overnight now instead of only when someone is at the phone.",
       "Our records were scattered across spreadsheets. Zebnex moved everything into one proper database and now our reports take minutes instead of days.",
     name: "Samuel Kiprono",
     role: "Founder",
     company: "Pure Care Services",
-  },
-  {
-    quote:
-      "The branding work gave us a look we are genuinely proud of — consistent across the shop, the packaging and social media.",
-    name: "Aisha Hassan",
-    role: "Owner",
-    company: "Antique",
   },
   {
     quote:
@@ -409,13 +402,12 @@ export const PLANS: Plan[] = [
     price: "From KSh 95,000",
     note: "one-off project",
     summary:
-      "For growing businesses that need a website plus the systems behind it working properly.",
+      "For growing businesses that need a larger website or a website connected to their operations.",
     features: [
       "Everything in Starter",
       "Custom design and content management",
       "Blog, gallery or booking module",
-      "Analytics dashboard setup",
-      "Basic network or cloud configuration",
+      "Management system integrations",
       "3 months support and maintenance",
     ],
     popular: true,
@@ -425,44 +417,38 @@ export const PLANS: Plan[] = [
     price: "Custom quote",
     note: "scoped per project",
     summary:
-      "For organisations needing custom software, infrastructure or full brand and security work.",
+      "For organizations that need a tailored management system for their operations.",
     features: [
-      "Custom software development",
-      "Network design and installation",
-      "Database design and migration",
-      "Security audit and staff training",
-      "Full brand identity and guidelines",
-      "Ongoing managed support",
+      "Custom management system modules",
+      "Operational records and reporting",
+      "Payment and messaging integrations where needed",
+      "Staff training and handover",
+      "Ongoing system support options",
     ],
   },
 ];
 
 export const RETAINERS = [
   {
-    name: "IT Support Retainer",
+    name: "Management System Support",
     price: "From KSh 15,000 / month",
-    body: "Remote and on-site support, monitoring, updates and priority response for your team.",
+    body: "System updates, user assistance, monitoring and ongoing improvements for your team.",
   },
   {
     name: "Website Care",
     price: "From KSh 6,000 / month",
     body: "Hosting oversight, backups, security patching, and content updates each month.",
   },
-  {
-    name: "Security Monitoring",
-    price: "From KSh 20,000 / month",
-    body: "Endpoint protection, periodic audits, quarterly staff training and incident support.",
-  },
 ];
 
 export const FAQS = [
   {
     q: "How long does a typical project take?",
-    a: "A straightforward website usually takes 2–3 weeks from approval of the design. Networking installations are often done within a week. Custom software depends on scope — we give you a timeline in the proposal before any work starts.",
+    a: "A straightforward website usually takes 2–3 weeks from approval of the design. A management system depends on its modules and workflows; we give you a timeline in the proposal before work starts.",
   },
   {
     q: "Do you work with businesses outside Nairobi?",
-    a: "Yes. Web, cloud, database and branding work is handled remotely for clients anywhere in Kenya. For networking and on-site installations we travel, and travel costs are stated upfront in the quote.",
+    a: "Yes. We work with organizations across Kenya. Website projects can be handled remotely, and we arrange consultations and system training to suit your team.",
   },
   {
     q: "How much does a website cost?",
