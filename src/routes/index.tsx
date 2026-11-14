@@ -1,15 +1,12 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 import clientCare from "@/assets/client-care.jpg";
-import clientLogistics from "@/assets/client-logistics.jpg";
 import clientRetail from "@/assets/client-retail.jpg";
 import clientSchool from "@/assets/client-school.jpg";
-import clientSecurity from "@/assets/client-security.jpg";
 import clientTours from "@/assets/client-tours.jpg";
 import {
   ArrowRight,
   Blocks,
   Globe,
-  ShieldCheck,
   MapPin,
   TrendingUp,
 } from "lucide-react";
@@ -58,7 +55,7 @@ const REASONS = [
     body: "Clear, responsive websites that make it easier for customers to understand and reach you.",
   },
   {
-    icon: ShieldCheck,
+    icon: Blocks,
     title: "Systems shaped around your work",
     body: "Management systems are planned around your real records, routines and reporting needs.",
   },
@@ -83,11 +80,9 @@ const POST_IMAGES = {
 } as const;
 
 const CLIENT_PHOTOS = [
-  clientLogistics,
   clientSchool,
   clientRetail,
   clientTours,
-  clientSecurity,
   clientCare,
 ] as const;
 
@@ -140,7 +135,7 @@ function HomePage() {
         <div>
           <p className="eyebrow">About Zebnex</p>
           <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">
-            Your Technology Partner, End to End
+            Websites and systems for everyday work
           </h2>
           <div className="hairline mt-6" />
           <p className="mt-6 leading-relaxed text-muted-foreground">
@@ -263,8 +258,7 @@ function HomePage() {
         <div className="container-page text-center">
           <h2 className="text-2xl font-semibold sm:text-3xl">Trusted by Businesses Across Kenya</h2>
           <p className="mx-auto mt-4 max-w-2xl text-sm text-muted-foreground">
-            We're proud to have earned the trust of organizations across different industries — from
-            education and hospitality to security and professional services.
+            We're proud to work with organizations across education, tourism, retail and professional services.
           </p>
           <ul className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
             {CLIENTS.map((client, index) => (
@@ -329,7 +323,7 @@ function HomePage() {
 
       <CtaBand
         title="Ready to Build Something That Lasts?"
-          body="Tell us whether you need a website or a management system, and we'll help you plan the right next step."
+        body="Tell us whether you need a website or a management system, and we'll help you plan the right next step."
         buttonLabel="Get a Free Consultation"
       />
     </>

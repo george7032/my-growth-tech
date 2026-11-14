@@ -308,11 +308,7 @@ const ALL_POSTS: Post[] = [
 ];
 
 export const POSTS = ALL_POSTS.filter((post) =>
-  [
-    "cloud-vs-on-premise",
-    "what-makes-a-website-convert",
-    "choosing-the-right-database",
-  ].includes(post.slug),
+  ["what-makes-a-website-convert", "choosing-the-right-database"].includes(post.slug),
 ).map((post) => ({
   ...post,
   category: post.slug === "what-makes-a-website-convert" ? "Websites" : "Management Systems",
@@ -357,7 +353,6 @@ export const TESTIMONIALS: Testimonial[] = [
   },
   {
     quote:
-      "The booking site they built has paid for itself several times over. Enquiries come in overnight now instead of only when someone is at the phone.",
       "Our records were scattered across spreadsheets. Zebnex moved everything into one proper database and now our reports take minutes instead of days.",
     name: "Samuel Kiprono",
     role: "Founder",
