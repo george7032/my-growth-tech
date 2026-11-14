@@ -74,9 +74,6 @@ const REASONS = [
 const POST_IMAGES = {
   web: slideWeb,
   analytics: slideWeb,
-  security: slideWeb,
-  network: slideWeb,
-  branding: slideWeb,
 } as const;
 
 const CLIENT_PHOTOS = [

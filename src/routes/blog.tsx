@@ -34,9 +34,6 @@ export const Route = createFileRoute("/blog")({
 export const POST_IMAGES = {
   web: slideWeb,
   analytics: slideWeb,
-  security: slideWeb,
-  network: slideWeb,
-  branding: slideWeb,
 } as const;
 
 const FILTERS = ["All", ...CATEGORIES] as const;

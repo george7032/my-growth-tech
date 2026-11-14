@@ -9,9 +9,6 @@ import { POSTS } from "@/lib/site-data";
 const IMAGES = {
   web: slideWeb,
   analytics: slideWeb,
-  security: slideWeb,
-  network: slideWeb,
-  branding: slideWeb,
 } as const;
 
 const CLOSING_CTA: Record<string, { title: string; body: string }> = {
