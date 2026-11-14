@@ -30,13 +30,7 @@ const ROUTES = [
   "/faq",
   "/blog",
   "/contact",
-  "/blog/signs-your-business-network-needs-an-upgrade",
-  "/blog/cybersecurity-basics-every-small-business-should-have",
-  "/blog/is-it-time-to-rebrand",
-  "/blog/cloud-vs-on-premise",
   "/blog/what-makes-a-website-convert",
-  "/blog/real-cost-of-a-data-breach",
-  "/blog/brand-identity-that-lasts",
   "/blog/choosing-the-right-database",
 ];
 

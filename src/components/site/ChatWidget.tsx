@@ -8,7 +8,7 @@ import logo from "@/assets/zebnex-logo.png";
 const SUGGESTIONS = [
   "What services do you offer?",
   "How much does a website cost?",
-  "Can you help with networking?",
+  "Can you build a management system?",
 ];
 
 type ChatMessage = { role: "user" | "assistant"; content: string };
@@ -17,7 +17,7 @@ const STORAGE_KEY = "zebnex-chat-v1";
 const GREETING: ChatMessage = {
   role: "assistant",
   content:
-    "Hi! I'm the Zebnex assistant. Ask me about web development, networking, cloud, cybersecurity or branding — or tell me what your business needs and I'll point you to the right starting point.",
+    "Hi! I'm the Zebnex assistant. Ask me about websites or management systems, or tell me what your organization needs.",
 };
 
 export function ChatWidget({ open, onOpenChange }: { open: boolean; onOpenChange: (v: boolean) => void }) {

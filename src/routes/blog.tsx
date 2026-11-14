@@ -3,10 +3,6 @@ import { ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 
-import slideAnalytics from "@/assets/slide-analytics.jpg";
-import slideBranding from "@/assets/slide-branding.jpg";
-import slideNetwork from "@/assets/slide-network.jpg";
-import slideSecurity from "@/assets/slide-security.jpg";
 import slideWeb from "@/assets/slide-web.jpg";
 import { CtaBand } from "@/components/site/CtaBand";
 import { PageHeader } from "@/components/site/PageHeader";
@@ -36,11 +32,11 @@ export const Route = createFileRoute("/blog")({
 });
 
 export const POST_IMAGES = {
-  security: slideSecurity,
-  network: slideNetwork,
-  branding: slideBranding,
   web: slideWeb,
-  analytics: slideAnalytics,
+  analytics: slideWeb,
+  security: slideWeb,
+  network: slideWeb,
+  branding: slideWeb,
 } as const;
 
 const FILTERS = ["All", ...CATEGORIES] as const;

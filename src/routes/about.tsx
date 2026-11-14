@@ -39,7 +39,7 @@ const VALUES = [
   },
   {
     title: "Excellence",
-    body: "We don't settle for \"good enough.\" Whether it's a line of code, a network configuration, or a logo design, the work we put our name on is held to a high bar.",
+    body: "We don't settle for \"good enough.\" We hold the websites and management systems we deliver to a high standard.",
   },
 ];
 

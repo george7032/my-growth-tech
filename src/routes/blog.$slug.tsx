@@ -2,20 +2,16 @@ import { Link, createFileRoute, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import ceoPortrait from "@/assets/ceo-ian-kariuki.jpg";
-import slideAnalytics from "@/assets/slide-analytics.jpg";
-import slideBranding from "@/assets/slide-branding.jpg";
-import slideNetwork from "@/assets/slide-network.jpg";
-import slideSecurity from "@/assets/slide-security.jpg";
 import slideWeb from "@/assets/slide-web.jpg";
 import { CtaBand } from "@/components/site/CtaBand";
 import { POSTS } from "@/lib/site-data";
 
 const IMAGES = {
-  security: slideSecurity,
-  network: slideNetwork,
-  branding: slideBranding,
   web: slideWeb,
-  analytics: slideAnalytics,
+  analytics: slideWeb,
+  security: slideWeb,
+  network: slideWeb,
+  branding: slideWeb,
 } as const;
 
 const CLOSING_CTA: Record<string, { title: string; body: string }> = {
