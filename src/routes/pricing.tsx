@@ -91,7 +91,7 @@ function PricingPage() {
             For businesses that would rather have us on call than search for help when something
             breaks.
           </p>
-          <div className="mt-12 grid gap-8 md:grid-cols-3">
+          <div className="mt-12 grid gap-8 md:grid-cols-2">
             {RETAINERS.map((r) => (
               <div
                 key={r.name}

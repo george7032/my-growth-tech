@@ -61,7 +61,7 @@ export const CATEGORIES = ["Websites", "Management Systems"] as const;
 export type Post = {
   slug: string;
   title: string;
-  category: string;
+  category: (typeof CATEGORIES)[number] | "Tech Trends" | "Cybersecurity Tips" | "Branding Strategy" | "Cloud Adoption";
   excerpt: string;
   date: string;
   readTime: string;
@@ -346,7 +346,6 @@ export const TESTIMONIALS: Testimonial[] = [
   },
   {
     quote:
-      "The booking site they built has paid for itself several times over. Enquiries come in overnight now instead of only when someone is at the phone.",
     name: "Kelvin Otieno",
     role: "Director",
     company: "Gokyle Tours and Safaris",
